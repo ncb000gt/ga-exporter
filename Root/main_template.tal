@@ -1,0 +1,111 @@
+<html xmlns:tal="http://axiomstack.com/tale" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Google Analytics Exporter</title>
+    <link rel="stylesheet" href="/static/core.css" media="screen" />
+    <link rel="stylesheet" href="http://static.jquery.com/ui/css/vader.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+	<h1>Google Analytics Exporter</h1>
+	<ul class="nav">
+	  <li><a href="#" id="open_disclaimer">Disclaimer</a></li>
+	  <li><a href="#" id="open_help">Help</a></li>
+	</ul>
+      </div>
+
+      <div class="collection">
+	<h2>Configuration for Export</h2>
+	<form action="/" method="post" name="gadata">
+	  <fieldset>
+	    <legend>Authentication</legend>
+	    <label for="username">Username:</label> <input type="text" name="username" id="username" />
+	    <label for="password">Password:</label> <input type="password" name="password" id="password" />
+	    <label for="property">Property ID:</label> <input type="text" name="property" id="property" />
+	  </fieldset>
+	  <fieldset>
+	    <legend>Options</legend>
+	    <label for="dimensions">Dimensions:</label> <input type="text" name="dimensions" id="dimensions" readonly="true" />
+	    <label for="metrics">Metrics:</label> <input type="text" name="metrics" id="metrics" readonly="true" />
+	  </fieldset>
+	  <fieldset>
+	    <input type="submit" value="Export" />
+	  </fieldset>
+	</form>
+      </div>
+
+      <div class="contained">
+	<div class="options">
+	  <h2>Options for Export</h2>
+	  <div class="accordion">
+	    <h3>Dimensions <div></div></h3>
+	    <div>
+	      <ul class="dimensions">
+		<li>Browser</li>
+		<li>Entrances</li>
+	      </ul>
+	    </div>
+	    <h3>Metrics <div></div></h3>
+	    <div>
+	      <ul class="metrics">
+		<li>Bounces</li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="config">
+	  <div class="dimensions">
+	    <h3>Added Dimensions</h3>
+	    <ul class="dimensions">
+	      <li class="none">Nothing In List</li>
+	    </ul>
+	  </div>
+	  
+	  <div class="metrics">
+	    <h3>Added Metrics</h3>
+	    <ul class="metrics">
+	      <li class="none">Nothing In List</li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+    <a name="disclaimer" />
+    <div id="disclaimer" title="Disclaimer">
+      <p>This is an application I wrote as an example of using JQueryUI, Axiom Stack, and the Google Analytics API. In essence, you get the ability to export your data to CSV, JSON and XML formats.</p>
+      <p><strong>Your Information:</strong> Your username and password are saved on the server in so much as they are stored in RAM. I do not put this into a data store of any other kind.</p>
+      <p><strong>GA Property:</strong> In order to make sure that you are not exceeding <a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html" taget="_blank">quotas set by the Google Analytics Beta</a> servers I have to store your GA Property Id. This ID is removed 24 hours after it is last used to access your data.</p>
+      <p><strong>Open Sourced:</strong> I also make the source readily available so that you all can see that I'm really not interested in your analytics information. While I'm sure the service could be turned into something more. For now, I don't want the hassle.</p>
+    </div>
+
+    
+    <a name="help" />
+    <div id="help">
+    </div>
+
+    <script src="http://www.google.com/jsapi?key=ABQIAAAARDD2wz2X5ykLLlue8z9i-hTY_KRYc9dRpZd0Dz-53Gz2F_akARR7Um6aY34tJtyKvfSpp0O0k65lkA" type="text/javascript"></script>
+    <script type="text/javascript">
+      // <![CDATA[
+      google.load("jquery", "1");
+      google.load("jqueryui", "1");
+      // ]]>
+    </script>
+    <script src="/static/ga-export.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      // <![CDATA[
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      // ]]>
+    </script>
+    <script type="text/javascript">
+      // <![CDATA[
+      try {
+      var pageTracker = _gat._getTracker("UA-1893150-4");
+      pageTracker._trackPageview();
+      } catch(err) {}
+      // ]]>
+    </script>
+  </body>
+</html>
