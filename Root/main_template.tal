@@ -16,22 +16,41 @@
 
       <div class="collection">
 	<h2>Configuration for Export</h2>
-	<form action="/" method="post" name="gadata">
-	  <fieldset>
-	    <legend>Authentication</legend>
-	    <label for="username">Username:</label> <input type="text" name="username" id="username" />
-	    <label for="password">Password:</label> <input type="password" name="password" id="password" />
-	    <label for="property">Property ID:</label> <input type="text" name="property" id="property" />
-	  </fieldset>
-	  <fieldset>
-	    <legend>Options</legend>
-	    <label for="dimensions">Dimensions:</label> <input type="text" name="dimensions" id="dimensions" readonly="true" />
-	    <label for="metrics">Metrics:</label> <input type="text" name="metrics" id="metrics" readonly="true" />
-	  </fieldset>
-	  <fieldset>
-	    <input type="submit" value="Export" />
-	  </fieldset>
-	</form>
+	<div>
+	  <div tal:if="message">
+	    <h3 tal:if="message.success">Success</h3>
+	    <p tal:content-if="message.success"></p>
+	    <h3 tal:if="message.failure">Failure</h3>
+	    <p tal:content-if="message.failure"></p>
+	    <h3 tal:if="message.info">Info</h3>
+	    <p tal:content-if="message.info"></p>
+	  </div>
+	  <form action="/" method="post" name="gadata">
+	    <fieldset>
+	      <legend>Authentication</legend>
+	      <label for="username">Username:</label> <input type="text" name="username" id="username" />
+	      <label for="password">Password:</label> <input type="password" name="password" id="password" />
+	      <label for="property">Property ID:</label> <input type="text" name="property" id="property" />
+	    </fieldset>
+	    <fieldset>
+	      <legend>Configuration</legend>
+	      <label for="format">Format:</label> 
+	      <select name="format" id="format">
+		<option id="csv" value="csv">CSV</option>
+		<!--<option id="json" value="json">JSON</option>
+		    <option id="xml" value="xml">XML</option>-->
+	      </select>
+	    </fieldset>
+	    <fieldset>
+	      <legend>Options</legend>
+	      <label for="dimensions">Dimensions:</label> <input type="text" name="dimensions" id="dimensions" readonly="true" />
+	      <label for="metrics">Metrics:</label> <input type="text" name="metrics" id="metrics" readonly="true" />
+	    </fieldset>
+	    <fieldset>
+	      <input type="submit" value="Export" />
+	    </fieldset>
+	  </form>
+	</div>
       </div>
 
       <div class="contained">
@@ -57,6 +76,7 @@
 	<div class="config">
 	  <div class="dimensions">
 	    <h3>Added Dimensions</h3>
+	    <span>Current Total: <span id="dimensions_count"></span></span>
 	    <ul class="dimensions">
 	      <li class="none">Nothing In List</li>
 	    </ul>
@@ -64,6 +84,7 @@
 	  
 	  <div class="metrics">
 	    <h3>Added Metrics</h3>
+	    <span>Current Total: <span id="metrics_count"></span></span>
 	    <ul class="metrics">
 	      <li class="none">Nothing In List</li>
 	    </ul>

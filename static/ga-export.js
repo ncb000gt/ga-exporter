@@ -1,4 +1,8 @@
 var disclaimer_opened = false;
+var MAX_METRICS = 10;
+var MAX_DIMENSIONS = 7;
+var metrics_count = 0;
+var dimensions_count = 0;
 
 $(document).ready(
     function() {
@@ -17,6 +21,7 @@ $(document).ready(
 		accept: ".options ul.dimensions li",
 		activeClass: "highlight",
 		drop: function(ev, ui) {
+		    dimensions_count++;
 		    addOption(ui.draggable, $(this), $('input[name="dimensions"]'));
 		}
 	    }
@@ -27,6 +32,7 @@ $(document).ready(
 		accept: ".config ul.dimensions li",
 		activeClass: "highlight",
 		drop: function(ev, ui) {
+		    dimensions_count--;
 		    removeOption(ui.draggable, $(this), $('input[name="dimensions"]'));
 		}
 	    }
@@ -37,6 +43,7 @@ $(document).ready(
 		accept: ".options ul.metrics li",
 		activeClass: "highlight",
 		drop: function(ev, ui) {
+		    metrics_count++;
 		    addOption(ui.draggable, $(this), $('input[name="metrics"]'));
 		}
 	    }
@@ -47,6 +54,7 @@ $(document).ready(
 		accept: ".config ul.metrics li",
 		activeClass: "highlight",
 		drop: function(ev, ui) {
+		    metrics_count--;
 		    removeOption(ui.draggable, $(this), $('input[name="metrics"]'));
 		}
 	    }
@@ -88,6 +96,14 @@ $(document).ready(
 		}
 	    }
 	);
+
+	$('input[type="submit"]').click(
+	    function(e) {
+		return validate_form();
+	    }
+	);
+
+	update_counts();
     }
 );
 
@@ -106,6 +122,7 @@ function addOption($item, $where, $input) {
 	    addSingle(parent);
 	}
     );
+    update_counts();
 };
 
 function removeOption($item, $where, $input) {
@@ -126,6 +143,7 @@ function removeOption($item, $where, $input) {
 	    addSingle(parent);
 	}
     );
+    update_counts();
 };
 
 function removeSingle($where) {
@@ -136,4 +154,14 @@ function addSingle(parent) {
     if (parent.children().length == 0) {
 	parent.append('<li class="none">Nothing In List</li>');
     }
+}
+
+function validate_form() {
+    //$('form[name="gadata"]')
+    return true;
+}
+
+function update_counts() {
+    $("#dimensions_count").text(dimensions_count);
+    $("#metrics_count").text(metrics_count);
 }
