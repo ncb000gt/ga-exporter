@@ -22,13 +22,15 @@ function export_data() {
     var metrics = req.get('metrics');
 
     if (username && password && property && format && dimensions && metrics) {
+	var split_dims = dimensions.split(',');
+	var split_metrics = metrics.split(',');
 	var submit_data = {
 		username: username,
 		password: password,
 		property: property,
 		format: format,
-		dimensions: get_dimensions(dimensions.split(',')),
-		metrics: get_metrics(metrics.split(','))
+		dimensions: get_dimensions(split_dims),
+		metrics: get_metrics(split_metrics)
 	};
 	app.log("dims: " + submit_data.dimensions);
 	app.log("mets: " + submit_data.metrics);
@@ -36,6 +38,13 @@ function export_data() {
 	var entries = get_entries(submit_data);
 	var entries_json = convert_entries(entries, submit_data);
 	app.log(entries_json.toSource());
+
+	var complete_set = {
+
+	};
+
+	global['to_'+format](entries_json, split_dims, split_metrics);
+
 	data.success = "All fields properly filled out.";
     } else {
 	data.failure = "Not all required fields were filled out.";

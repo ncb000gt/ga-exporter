@@ -97,7 +97,7 @@
     <div id="disclaimer" title="Disclaimer">
       <p>This is an application I wrote as an example of using JQueryUI, Axiom Stack, and the Google Analytics API. In essence, you get the ability to export your data to CSV, JSON and XML formats.</p>
       <p><strong>Your Information:</strong> Your username and password are saved on the server in so much as they are stored in RAM. I do not put this into a data store of any other kind.</p>
-      <p><strong>GA Property:</strong> In order to make sure that you are not exceeding <a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html" taget="_blank">quotas set by the Google Analytics Beta</a> servers I have to store your GA Property Id. This ID is removed 24 hours after it is last used to access your data.</p>
+      <p><strong>GA Property:</strong> In order to make sure that you are not exceeding <a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html" target="_blank">quotas set by the Google Analytics Beta</a> servers I have to store your GA Property Id. This ID is removed 24 hours after it is last used to access your data.</p>
       <p><strong>Open Sourced:</strong> I also make the source readily available so that you all can see that I'm really not interested in your analytics information. While I'm sure the service could be turned into something more. For now, I don't want the hassle.</p>
     </div>
 

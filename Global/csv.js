@@ -1,7 +1,7 @@
-function toCSV(data) {
+function to_csv(data) {
     res.contentType = "application/vnd.ms-excel";
-    res.getServletResponse().setHeader("Content-Disposition", "attachment; filename=users_" + new Date().format("yyyyMMddHHmmss") + ".csv");
-    res.write(data.titles.join(",") + "\n");
+    res.getServletResponse().setHeader("Content-Disposition", "attachment; filename=gaexport-" + new Date().format("yyyyMMddHHmmss") + ".csv");
+    res.write("Dimensions," + titles.join(",") + ",Metrics," + metrics.join(',') "\n");
     write_csv_lines(users);
 }
 
