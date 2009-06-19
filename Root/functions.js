@@ -2,6 +2,9 @@ function main() {
     var message = null;
     if (req.method == 'POST') {
 	message = this.export_data();
+	if (message.success) {
+	    return;
+	}
     }
 
     return this.main_template({message: message});
@@ -18,32 +21,29 @@ function export_data() {
     var password = req.get('password');
     var property = req.get('property');
     var format = req.get('format');
-    var dimensions = req.get('dimensions');
-    var metrics = req.get('metrics');
+    var dimensions = req.get('raw_dimensions');
+    var metrics = req.get('raw_metrics');
 
     if (username && password && property && format && dimensions && metrics) {
-	var split_dims = dimensions.split(',');
+	var split_dimensions = dimensions.split(',');
 	var split_metrics = metrics.split(',');
 	var submit_data = {
 		username: username,
 		password: password,
 		property: property,
 		format: format,
-		dimensions: get_dimensions(split_dims),
-		metrics: get_metrics(split_metrics)
+		dimensions: dimensions,
+		metrics: metrics
 	};
 	app.log("dims: " + submit_data.dimensions);
 	app.log("mets: " + submit_data.metrics);
 
 	var entries = get_entries(submit_data);
-	var entries_json = convert_entries(entries, submit_data);
+	var entries_json = convert_entries(entries, split_dimensions, split_metrics);
 	app.log(entries_json.toSource());
 
-	var complete_set = {
 
-	};
-
-	global['to_'+format](entries_json, split_dims, split_metrics);
+	global['to_'+format](entries_json, split_dimensions, split_metrics);
 
 	data.success = "All fields properly filled out.";
     } else {

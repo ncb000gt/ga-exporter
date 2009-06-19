@@ -3,6 +3,8 @@ var MAX_METRICS = 10;
 var MAX_DIMENSIONS = 7;
 var metrics_count = 0;
 var dimensions_count = 0;
+var dimensions = [];
+var metrics = [];
 
 $(document).ready(
     function() {
@@ -22,6 +24,7 @@ $(document).ready(
 		activeClass: "highlight",
 		drop: function(ev, ui) {
 		    dimensions_count++;
+		    dimensions.push(ui.draggable.attr('id'));
 		    addOption(ui.draggable, $(this), $('input[name="dimensions"]'));
 		}
 	    }
@@ -33,6 +36,7 @@ $(document).ready(
 		activeClass: "highlight",
 		drop: function(ev, ui) {
 		    dimensions_count--;
+		    dimensions.splice($.inArray(ui.draggable.attr('id'), dimensions), 1);
 		    removeOption(ui.draggable, $(this), $('input[name="dimensions"]'));
 		}
 	    }
@@ -44,6 +48,7 @@ $(document).ready(
 		activeClass: "highlight",
 		drop: function(ev, ui) {
 		    metrics_count++;
+		    metrics.push(ui.draggable.attr('id'));
 		    addOption(ui.draggable, $(this), $('input[name="metrics"]'));
 		}
 	    }
@@ -55,6 +60,7 @@ $(document).ready(
 		activeClass: "highlight",
 		drop: function(ev, ui) {
 		    metrics_count--;
+		    metrics.splice($.inArray(ui.draggable.attr('id'), metrics), 1);
 		    removeOption(ui.draggable, $(this), $('input[name="metrics"]'));
 		}
 	    }
@@ -115,9 +121,7 @@ function addOption($item, $where, $input) {
 
 	    $item.appendTo($where).fadeIn();
 	    $item.css({position:'static'});
-
-	    var input_val = $input.val();
-	    $input.val($input.val() + ((input_val.length > 0)?',':'') + $item.text());
+	    updateInputs();
 
 	    addSingle(parent);
 	}
@@ -133,18 +137,25 @@ function removeOption($item, $where, $input) {
 
 	    $item.appendTo($where).fadeIn();
 	    $item.css({position:'static'});
-	    var re = new RegExp(','+$item.text()+'|'+$item.text());
-	    var new_val = $input.val().replace(re, '');
-	    if (new_val.indexOf(',') == 0) {
-		new_val = new_val.replace(/,/,'');
-	    }
-	    $input.val(new_val);
+	    updateInputs();
 
 	    addSingle(parent);
 	}
     );
     update_counts();
 };
+
+function updateInputs() {
+    $('input[id="raw_dimensions"]').val(dimensions.join(','));
+    $('input[id="dimensions"]').val($.map(dimensions, function(e) {
+					      return dimension_definitions[e].name;
+					  }).join(','));
+
+    $('input[id="raw_metrics"]').val(metrics.join(','));
+    $('input[id="metrics"]').val($.map(metrics, function(e) {
+					      return metric_definitions[e].name;
+					  }).join(','));
+}
 
 function removeSingle($where) {
     $where.find('li.none').remove();
