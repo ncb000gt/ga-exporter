@@ -28,9 +28,9 @@
 	  <form action="/" method="post" name="gadata">
 	    <fieldset>
 	      <legend>Authentication</legend>
-	      <label for="username">Username:</label> <input type="text" name="username" id="username" />
+	      <label for="username">Username:</label> <input type="text" name="username" id="username" tal:attr="value: (req.data.username || null)"/>
 	      <label for="password">Password:</label> <input type="password" name="password" id="password" />
-	      <label for="property">Property ID:</label> <input type="text" name="property" id="property" />
+	      <label for="property">Property ID:</label> <input type="text" name="property" id="property" tal:attr="value: (req.data.property || null)"/>
 	    </fieldset>
 	    <fieldset>
 	      <legend>Configuration</legend>
@@ -43,10 +43,10 @@
 	    </fieldset>
 	    <fieldset>
 	      <legend>Options</legend>
-	      <label for="dimensions">Dimensions:</label> <input type="text" name="dimensions" id="dimensions" readonly="true" />
-	      <input type="hidden" name="raw_dimensions" id="raw_dimensions" />
-	      <label for="metrics">Metrics:</label> <input type="text" name="metrics" id="metrics" readonly="true" />
-	      <input type="hidden" name="raw_metrics" id="raw_metrics" />
+	      <label for="dimensions">Dimensions:</label> <input type="text" name="dimensions" id="dimensions" readonly="true"/>
+	      <input type="hidden" name="raw_dimensions" id="raw_dimensions"/>
+	      <label for="metrics">Metrics:</label> <input type="text" name="metrics" id="metrics" readonly="true"/>
+	      <input type="hidden" name="raw_metrics" id="raw_metrics"/>
 	    </fieldset>
 	    <fieldset>
 	      <input type="submit" value="Export" />
@@ -130,5 +130,9 @@
       } catch(err) {}
       // ]]>
     </script>
+    <!--<script type="text/javascript" tal:text="$">
+      var dimensions = [${"'"+req.data.raw_dimensions.split(",").join("','")+"'"}];
+      var metrics = [${"'"+req.data.raw_metrics.split(",").join("','")+"'"}];
+    </script>-->
   </body>
 </html>
