@@ -269,6 +269,87 @@ var dimension_definitions = {
 	    dimensions: []
 	}
     },
+    'ga:adContent': {
+	id: 'ga:adContent',
+	name: 'Ad Content',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:adGroup': {
+	id: 'ga:adGroup',
+	name: 'Ad Group',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:adSlot': {
+	id: 'ga:adSlot',
+	name: 'Ad Slot',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:adSlotPosition': {
+	id: 'ga:adSlotPosition',
+	name: 'Ad Slot Position',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:campaign': {
+	id: 'ga:campaign',
+	name: 'Campaign',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:keyword': {
+	id: 'ga:keyword',
+	name: 'Keyword',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:medium': {
+	id: 'ga:medium',
+	name: 'Medium',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:referralPath': {
+	id: 'ga:referralPath',
+	name: 'Referal Path',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:source': {
+	id: 'ga:source',
+	name: 'Source',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
     'ga:exitPagePath': {
 	id:'ga:exitPagePath',
 	name: 'Exit Page Path',
@@ -300,6 +381,114 @@ var dimension_definitions = {
 	id:'ga:pageTitle',
 	name: 'Page Title',
 	category: 3,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:affiliation': {
+	id:'ga:affiliation',
+	name: 'Affiliation',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:daysToTransaction': {
+	id:'ga:daysToTransaction',
+	name: 'Days to Transaction',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:productCategory': {
+	id:'ga:productCategory',
+	name: 'Product Category',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:productName': {
+	id:'ga:productName',
+	name: 'Product Name',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:productSku': {
+	id:'ga:productSku',
+	name: 'Product SKU',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:trasnactionId': {
+	id:'ga:transactionId',
+	name: 'Transaction ID',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchCategory': {
+	id:'ga:searchCategory',
+	name: 'Search Category',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchDestinationPage': {
+	id:'ga:searchDestinationPage',
+	name: 'Search Destination Page',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchKeyword': {
+	id:'ga:searchKeyword',
+	name: 'Search Keyword',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchKeywordRefinement': {
+	id:'ga:searchKeywordRefinement',
+	name: 'Search Keyword Refinement',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchStartPage': {
+	id:'ga:searchStartPage',
+	name: 'Search Start Page',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchUsed': {
+	id:'ga:searchUsed',
+	name: 'Search Used',
+	category: 5,
 	exceptions: {
 	    metrics: [],
 	    dimensions: []

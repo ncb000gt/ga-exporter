@@ -52,6 +52,9 @@ function export_data() {
 		    if (e.message.indexOf('InvalidCredentialsException') >= 0) {
 			data.failure = "Username and/or password were incorrect. Please re-enter and try again.";
 		    } else if (e.message.indexOf('InvalidEntryException') >= 0) {
+			//TODO: EMAIL serverAdmin WHEN THIS HAPPENS (SHOULD BE INFREQUENT)
+			app.log('Dimensions: ' + split_dimensions.toSource());
+			app.log('Metrics: ' + split_metrics.toSource());
 			data.failure = "Illegal combination of dimensions and metrics. Please contact " + app.getProperty('serverAdmin') + " and inform.";
 		    }
 

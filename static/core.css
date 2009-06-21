@@ -14,6 +14,8 @@ h1{float:left;}
 .content{overfloat:hidden;}
 .header{background:#555;margin-bottom:.7em;padding:.7em;margin-top:0;}
 .options{float:left;background:#555;margin-right:10px;width:25%;padding:5px;}
+.options h2{margin-bottom:5px;}
+.options .note{font-style:italic;font-size:.8em;}
 .options h3{background:#777;}
 .options ul{padding:0 0 0 5px;}
 .options li{padding:3px;border:1px dotted #888;list-style:none;margin:0 0 3px 0;width:150px;}

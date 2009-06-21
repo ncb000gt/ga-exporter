@@ -58,6 +58,7 @@
       <div class="contained">
 	<div class="options">
 	  <h2>Options for Export</h2>
+	  <span class="note">Click and Drag Options</span>
 	  <div class="accordion">
 	    <h3>Dimensions <div></div></h3>
 	    <div>
