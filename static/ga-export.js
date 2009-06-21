@@ -1,4 +1,5 @@
 var disclaimer_opened = false;
+var help_opened = false;
 var MAX_METRICS = 10;
 var MAX_DIMENSIONS = 7;
 var metrics_count = 0;
@@ -114,9 +115,35 @@ $(document).ready(
 	    }
 	);
 
+	$("#open_help").click(
+	    function(e) {
+		e.preventDefault();
+		if (!help_opened) {
+		    $('#help').dialog(
+			{
+			    draggable: false,
+			    width: 600
+			}
+		    );
+		    help_opened = true;
+		} else {
+		    $('#help').dialog('open');
+		}
+	    }
+	);
+
 	$('input[type="submit"]').click(
 	    function(e) {
 		return validate_form();
+	    }
+	);
+
+	$('#config_indicator').hover(
+	    function() {
+		//$(".collection")
+	    },
+	    function () {
+
 	    }
 	);
 

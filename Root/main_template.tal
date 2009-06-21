@@ -80,6 +80,7 @@
 	</div>
 	
 	<div class="config">
+	  <h2>Chosen Options</h2>
 	  <div class="dimensions">
 	    <h3>Added Dimensions</h3>
 	    <span>Current Total: <span id="dimensions_count"></span></span>
@@ -106,10 +107,20 @@
       <p><strong>GA Property:</strong> In order to make sure that you are not exceeding <a href="http://code.google.com/apis/analytics/docs/gdata/gdataDeveloperGuide.html" target="_blank">quotas set by the Google Analytics Beta</a> servers I have to store your GA Property Id. This ID is removed 24 hours after it is last used to access your data.</p>
       <p><strong>Open Sourced:</strong> I also make the source readily available so that you all can see that I'm really not interested in your analytics information. While I'm sure the service could be turned into something more. For now, I don't want the hassle.</p>
     </div>
-
     
     <a name="help" />
-    <div id="help">
+    <div id="help" title="Help">
+      <p>
+	<strong>Usage:</strong> For the TL;DR versions:
+	<blockquote>
+	  <ol>
+	    <li>Fill out <strong id="config_indicator">Configuration for Export</strong></li>
+	    <li>Select options from the <strong id="options_indicator">Options for Export</strong>.</li>
+	    <li>Drag options to the <strong id="chosen_indicator">Chosen Options</strong> list (highlighted upon drag).</li>
+	    <li>Click <strong id="export_indicator">Export</strong></li>
+	  </ol>
+	</blockquote>
+      </p>
     </div>
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAARDD2wz2X5ykLLlue8z9i-hTY_KRYc9dRpZd0Dz-53Gz2F_akARR7Um6aY34tJtyKvfSpp0O0k65lkA" type="text/javascript"></script>
