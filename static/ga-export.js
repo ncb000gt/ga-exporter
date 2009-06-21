@@ -66,12 +66,23 @@ $(document).ready(
 	    }
 	);
 
-	$(".accordion").accordion(
+	$(".definition_accordion").accordion(
 	    {
 		collapsible: true,
 		icons: {
     		    header: "expand",
    		    headerSelected: "collapse"
+		}
+	    }
+	);
+
+	$(".accordion").accordion(
+	    {
+		collapsible: true,
+		icons: {
+    		    header: "expand",
+   		    headerSelected: "collapse",
+		    fillSpace: true
 		}
 	    }
 	);

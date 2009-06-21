@@ -61,7 +61,7 @@
 	  <span class="note">Click and Drag Options</span>
 	  <div class="accordion">
 	    <h3>Dimensions <div></div></h3>
-	    <div tal:repeat-content="category: getCategories(dimension_definitions)">
+	    <div class="definition_accordion" tal:repeat-content="category: getCategories(dimension_definitions)">
 	      <h4 tal:content="category.name"> </h4>
 	      <div>
 		<ul class="dimensions">
@@ -70,7 +70,7 @@
 	      </div>
 	    </div>
 	    <h3>Metrics <div></div></h3>
-	    <div tal:repeat-content="category: getCategories(metric_definitions)">
+	    <div class="definition_accordion" tal:repeat-content="category: getCategories(metric_definitions)">
 	      <h4 tal:content="category.name"> </h4>
 	      <ul class="metrics">
 		<li tal:repeat="metric: category.definitions" tal:attr="id: metric.id" tal:content="metric.name"> </li>
@@ -135,9 +135,5 @@
       } catch(err) {}
       // ]]>
     </script>
-    <!--<script type="text/javascript" tal:text="$">
-      var dimensions = [${"'"+req.data.raw_dimensions.split(",").join("','")+"'"}];
-      var metrics = [${"'"+req.data.raw_metrics.split(",").join("','")+"'"}];
-    </script>-->
   </body>
 </html>

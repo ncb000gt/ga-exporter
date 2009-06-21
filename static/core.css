@@ -17,6 +17,7 @@ h1{float:left;}
 .options h2{margin-bottom:5px;}
 .options .note{font-style:italic;font-size:.8em;}
 .options h3{background:#777;}
+.options h4{background:#666;padding:3px 0;}
 .options ul{padding:0 0 0 5px;}
 .options li{padding:3px;border:1px dotted #888;list-style:none;margin:0 0 3px 0;width:150px;}
 .options li:hover{cursor:move;}
@@ -32,6 +33,9 @@ h1{float:left;}
 .expand{background: url("/static/images/expand.png") no-repeat;}
 .collapse{background: url("/static/images/collapse.png") no-repeat;}
 .expand,.collapse{float:right;width:16px;height:16px;margin-top:6px;}
+h3 .expand,h3 .collapse{margin-top:3px;}
+h4 .expand,h4 .collapse{margin-top:2px;}
+
 #disclaimer{display:none;color:#000;background:#fff;border:2px solid #222;padding:5px;padding-top:0;margin:0;}
 #disclaimer a {color:#777;}
 .ui-dialog-titlebar{background:#666;margin:0;overflow:hidden;}
