@@ -61,15 +61,19 @@
 	  <span class="note">Click and Drag Options</span>
 	  <div class="accordion">
 	    <h3>Dimensions <div></div></h3>
-	    <div>
-	      <ul class="dimensions">
-		<li tal:repeat="dimension: dimension_definitions" tal:attr="id: dimension.id" tal:content="dimension.name"> </li>
-	      </ul>
+	    <div tal:repeat-content="category: getCategories(dimension_definitions)">
+	      <h4 tal:content="category.name"> </h4>
+	      <div>
+		<ul class="dimensions">
+		  <li tal:repeat="dimension: category.definitions" tal:attr="id: dimension.id" tal:content="dimension.name"> </li>
+		</ul>
+	      </div>
 	    </div>
 	    <h3>Metrics <div></div></h3>
-	    <div>
+	    <div tal:repeat-content="category: getCategories(metric_definitions)">
+	      <h4 tal:content="category.name"> </h4>
 	      <ul class="metrics">
-		<li tal:repeat="metric: metric_definitions" tal:attr="id: metric.id" tal:content="metric.name"> </li>
+		<li tal:repeat="metric: category.definitions" tal:attr="id: metric.id" tal:content="metric.name"> </li>
 	      </ul>
 	    </div>
 	  </div>

@@ -1,3 +1,54 @@
+function sortByName(a, b) {
+    if (a.name > b.name) {
+	return 1;
+    } else if (a.name == b.name) {
+	return 0;
+    }
+    return -1;
+}
+
+function getCategories(dictionary) {
+    var categories = [];
+    var category_definitions = ((dictionary == dimension_definitions)?dimension_category_definitions:metric_category_definitions);
+    for (var cat_idx in category_definitions) {
+	categories.push(
+	    {
+		name: category_definitions[cat_idx],
+		definitions: getCategory(dictionary, cat_idx)
+	    }
+	);
+    }
+    return categories;
+}
+
+function getCategory(dictionary, category) {
+    var definitions = [];
+    for each (var definition in dictionary) {
+	if (definition.category == category) {
+	    definitions.push(definition);
+	}
+    }
+    definitions.sort(sortByName);
+    return definitions;
+}
+
+var dimension_category_definitions = {
+    1: "D1: Visitor",
+    2: "D2: Campaign",
+    3: "D3: Content",
+    4: "D4: ECommerce",
+    5: "D5: Internal Search"
+};
+
+var metric_category_definitions = {
+    1: "D1: Visitor",
+    2: "D2: Campaign",
+    3: "D3: Content",
+    4: "D4: ECommerce",
+    5: "D5: Internal Search",
+    6: "D6: Goals"
+};
+
 var dimension_definitions = {
     'ga:browser': {
 	id: 'ga:browser',
@@ -573,6 +624,321 @@ var metric_definitions = {
 	id: 'ga:visits',
 	name: 'Visits',
 	category: 1,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:adClicks': {
+	id: 'ga:adClicks',
+	name: 'Ad Clicks',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:adCost': {
+	id: 'ga:adCost',
+	name: 'Ad Cost',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:CPC': {
+	id: 'ga:CPC',
+	name: 'CPC',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:CPM': {
+	id: 'ga:CPM',
+	name: 'CPM',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:CTR': {
+	id: 'ga:CTR',
+	name: 'CTR',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:impressions': {
+	id: 'ga:impressions',
+	name: 'Impressions',
+	category: 2,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:uniquePageViews': {
+	id: 'ga:uniquePageViews',
+	name: 'Unique Page Views',
+	category: 3,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:itemRevenue': {
+	id: 'ga:itemRevenue',
+	name: 'Item Revenue',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:itemQuantity': {
+	id: 'ga:itemQuantity',
+	name: 'Item Quantity',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:transactionRevenue': {
+	id: 'ga:transactionRevenue',
+	name: 'Transaction Revenue',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:transactions': {
+	id: 'ga:transactions',
+	name: 'Transactions',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:transactionShipping': {
+	id: 'ga:transactionShipping',
+	name: 'Transaction Shipping',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:transactionTax': {
+	id: 'ga:transactionTax',
+	name: 'Transaction Tax',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:uniquePurchases': {
+	id: 'ga:uniquePurchases',
+	name: 'Unique Purchases',
+	category: 4,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchDepth': {
+	id: 'ga:searchDepth',
+	name: 'Search Depth',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchDuration': {
+	id: 'ga:searchDuration',
+	name: 'Search Duration',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchExits': {
+	id: 'ga:searchExits',
+	name: 'Search Exits',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchRefinements': {
+	id: 'ga:searchRefinements',
+	name: 'Search Refinements',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchUniques': {
+	id: 'ga:searchUniques',
+	name: 'Search Uniques',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:searchVisits': {
+	id: 'ga:searchVisits',
+	name: 'Search Visits',
+	category: 5,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal1Completions': {
+	id: 'ga:goal1Completions',
+	name: 'Goal 1 Completions',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal2Completions': {
+	id: 'ga:goal2Completions',
+	name: 'Goal 2 Completions',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal3Completions': {
+	id: 'ga:goal3Completions',
+	name: 'Goal 3 Completions',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal4Completions': {
+	id: 'ga:goal4Completions',
+	name: 'Goal 4 Completions',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goalCompletionsAll': {
+	id: 'ga:goalCompletionsAll',
+	name: 'Goal Completions All',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal1Starts': {
+	id: 'ga:goal1Starts',
+	name: 'Goal 1 Starts',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal2Starts': {
+	id: 'ga:goal2Starts',
+	name: 'Goal 2 Starts',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal3Starts': {
+	id: 'ga:goal3Starts',
+	name: 'Goal 3 Starts',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal4Starts': {
+	id: 'ga:goal4Starts',
+	name: 'Goal 4 Starts',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goalStartsAll': {
+	id: 'ga:goalStartsAll',
+	name: 'Goal Starts All',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal1Value': {
+	id: 'ga:goal1Value',
+	name: 'Goal 1 Value',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal2Value': {
+	id: 'ga:goal2Value',
+	name: 'Goal 2 Value',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal3Value': {
+	id: 'ga:goal3Value',
+	name: 'Goal 3 Value',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goal4Value': {
+	id: 'ga:goal4Value',
+	name: 'Goal 4 Value',
+	category: 6,
+	exceptions: {
+	    metrics: [],
+	    dimensions: []
+	}
+    },
+    'ga:goalValueAll': {
+	id: 'ga:goalValueAll',
+	name: 'Goal Value All',
+	category: 6,
 	exceptions: {
 	    metrics: [],
 	    dimensions: []
