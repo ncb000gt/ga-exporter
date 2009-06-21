@@ -121,7 +121,7 @@ $(document).ready(
 		if (!help_opened) {
 		    $('#help').dialog(
 			{
-			    draggable: false,
+			    draggable: true,
 			    width: 600
 			}
 		    );
@@ -138,12 +138,35 @@ $(document).ready(
 	    }
 	);
 
-	$('#config_indicator').hover(
+	$('.config_indicator').hover(
 	    function() {
-		//$(".collection")
-	    },
-	    function () {
+		var config = $(".collection");
+		config.fadeOut(200);
+		config.fadeIn(500);
+	    }
+	);
 
+	$('.options_indicator').hover(
+	    function() {
+		var config = $(".options");
+		config.fadeOut(200);
+		config.fadeIn(500);
+	    }
+	);
+
+	$('.chosen_indicator').hover(
+	    function() {
+		var config = $(".config");
+		config.fadeOut(200);
+		config.fadeIn(500);
+	    }
+	);
+
+	$('.export_indicator').hover(
+	    function() {
+		var config = $(".export");
+		config.fadeOut(200);
+		config.fadeIn(500);
 	    }
 	);
 

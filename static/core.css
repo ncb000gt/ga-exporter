@@ -40,6 +40,6 @@ h4 .expand,h4 .collapse{margin-top:2px;}
 #disclaimer a,#help a {color:#777;}
 .ui-dialog-titlebar{background:#666;margin:0;overflow:hidden;}
 .ui-dialog-title{float:left;padding:5px;}
-.ui-dialog-titlebar-close{height:20px;/*margin:-10px 0 0;*/padding:1px;position:absolute;right:0.3em;top:3%;width:20px;text-indent:-99999px;background: url("/static/images/close.png") no-repeat;}
+.ui-dialog-titlebar-close{height:20px;margin:-10px 0 0;padding:1px;position:absolute;right:0.3em;top:3%;width:20px;text-indent:-99999px;background: url("/static/images/close.png") no-repeat;}
 .ui-dialog-titlebar-close .ui-icon{overflow:hidden;}
-blockquote{border-left:2px solid #aaa;}
+#help span{font-weight:bold;font-style:italic;text-decoration:underline;}

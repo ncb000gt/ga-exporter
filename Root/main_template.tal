@@ -49,7 +49,7 @@
 	      <input type="hidden" name="raw_metrics" id="raw_metrics"/>
 	    </fieldset>
 	    <fieldset>
-	      <input type="submit" value="Export" />
+	      <input type="submit" class="export" value="Export" />
 	    </fieldset>
 	  </form>
 	</div>
@@ -109,18 +109,28 @@
     </div>
     
     <a name="help" />
-    <div id="help" title="Help">
-      <p>
-	<strong>Usage:</strong> For the TL;DR versions:
-	<blockquote>
+    <div id="help" title="Help (You can drag me)">
+      <div>
+	<h4>Usage:</h4>
+	<ol>
+	  <li>Fill out <span class="config_indicator">Configuration for Export</span></li>
+	  <li>Select options from the <span class="options_indicator">Options for Export</span>.</li>
+	  <li>Drag options to the <span class="chosen_indicator">Chosen Options</span> list (highlighted upon drag).</li>
+	  <li>Click <span class="export_indicator">Export</span></li>
+	</ol>
+	<p>
+	  <strong>Note:</strong> If you see an image like <img src="/static/images/expand.png" alt="" title=""/> or <img src="/static/images/collapse.png" alt="" title=""/>, then you can expand or collapse that section of the site.
+	</p>
+	<h4>Problems:</h4>
+	<p>
+	  If you experience any problems with the service there are a few things you can do:
 	  <ol>
-	    <li>Fill out <strong id="config_indicator">Configuration for Export</strong></li>
-	    <li>Select options from the <strong id="options_indicator">Options for Export</strong>.</li>
-	    <li>Drag options to the <strong id="chosen_indicator">Chosen Options</strong> list (highlighted upon drag).</li>
-	    <li>Click <strong id="export_indicator">Export</strong></li>
+	    <li><a href="http://github.com/ncb000gt/ga-exporter">Debug It</a></li>
+	    <li><a href="http://github.com/ncb000gt/ga-exporter/issues">Create a ticket</a></li>
+	    <li><a tal:attr="href: 'mailto:'+app.getProperty('serverAdmin')">Email the admin</a></li>
 	  </ol>
-	</blockquote>
-      </p>
+	</p>
+      </div>
     </div>
 
     <script src="http://www.google.com/jsapi?key=ABQIAAAARDD2wz2X5ykLLlue8z9i-hTY_KRYc9dRpZd0Dz-53Gz2F_akARR7Um6aY34tJtyKvfSpp0O0k65lkA" type="text/javascript"></script>
