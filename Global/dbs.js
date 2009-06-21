@@ -43,8 +43,9 @@ function update_db(db, profile, count) {
     if (count == 1) {
 	sql = "INSERT INTO "+db+" (profile, count, first_request, last_request) values('"+profile+"', "+count+", '"+time+"','"+time+"');";
     } else {
-	sql = "UPDATE "+db+" SET first_request = '"+time+"' WHERE profile = '"+profile+"'";
+	sql = "UPDATE "+db+" SET count="+count+", first_request='"+time+"' WHERE profile = '"+profile+"'";
     }
+
     var num = conn.executeUpdate(sql);
     if (num == -1) {
 	app.log('------------');

@@ -26,7 +26,6 @@ function convert_entries(entries, dimensions, metrics) {
             var entry = entries.get(i);
 
 	    for each(var met in metrics) {
-		app.log('met: ' + met);
 		var m = entry.getMetric(met);
 		var metric = {
 		    id: met,

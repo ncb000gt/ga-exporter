@@ -1,15 +1,35 @@
-function to_csv(data) {
+function to_csv(data, dimensions, metrics) {
+    var titles = ["Dimensions"];
+    var subtitles = [''];
+    for each (var dim in dimensions) {
+	titles.push('');
+	subtitles.push(dimension_definitions[dim].name);
+    }
+    titles.push("Metrics");
+    subtitles.push('');
+
+    for each (var met in metrics) {
+	subtitles.push(metric_definitions[met].name);
+	subtitles.push(metric_definitions[met].name + ": Confidence Interval");
+    }
+
     res.contentType = "application/vnd.ms-excel";
     res.getServletResponse().setHeader("Content-Disposition", "attachment; filename=gaexport-" + new Date().format("yyyyMMddHHmmss") + ".csv");
-    res.write("Dimensions," + titles.join(",") + ",Metrics," + metrics.join(',') + "\n");
-    write_csv_lines(users);
+    res.write(titles.join(',') + "\n");
+    res.write(subtitles.join(',') + "\n");
+    write_csv_lines(data);
 }
 
-function write_csv_lines(fields, rows) {
-    for each (var row in rows) {
-	var cols = [];
-	for each (var field in fields) {
-	    cols.push(csv_escape(row[field]));
+function write_csv_lines(data) {
+    for each (var result in data) {
+	var cols = ['']; //one space for dimensions title
+	for each (var dim in result.dimensions) {
+	    cols.push(csv_escape(dim.value));
+	}
+	cols.push(''); //one space for metrics title
+	for each (var met in result.metrics) {
+	    cols.push(csv_escape(met.value));
+	    cols.push(csv_escape(met.confidence));
 	}
 	res.write(cols.join(",") + "\n");
     }

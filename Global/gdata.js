@@ -233,9 +233,9 @@ var dimension_definitions = {
 	    dimensions: []
 	}
     },
-    'ga:userDefinedVariable': {
-	id: 'ga:userDefinedVariable',
-	name: 'User Defined Variable',
+    'ga:userDefinedValue': {
+	id: 'ga:userDefinedValue',
+	name: 'User Defined Value',
 	category: 1,
 	exceptions: {
 	    metrics: [],

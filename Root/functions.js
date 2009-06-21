@@ -44,14 +44,15 @@ function export_data() {
 		    var entries = get_entries(submit_data);
 		    if (update_db_24h(property, count_24h) && update_db_10s(property, count_10s)) {
 			var entries_json = convert_entries(entries, split_dimensions, split_metrics);
-			app.log(entries_json.toSource());
 
 			global['to_'+format](entries_json, split_dimensions, split_metrics);
 			success = true;
 		    }
 		} catch (e) {
-		    if (e.message.indexOf('InvalidCredentialsException')) {
+		    if (e.message.indexOf('InvalidCredentialsException') >= 0) {
 			data.failure = "Username and/or password were incorrect. Please re-enter and try again.";
+		    } else if (e.message.indexOf('InvalidEntryException') >= 0) {
+			data.failure = "Illegal combination of dimensions and metrics. Please contact " + app.getProperty('serverAdmin') + " and inform.";
 		    }
 
 		    app.log(e);
