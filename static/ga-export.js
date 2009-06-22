@@ -72,7 +72,8 @@ $(document).ready(
 		collapsible: true,
 		icons: {
     		    header: "expand",
-   		    headerSelected: "collapse"
+   		    headerSelected: "collapse",
+		    fillSpace: true
 		}
 	    }
 	);
@@ -93,7 +94,8 @@ $(document).ready(
 		collapsible: true,
 		icons: {
     		    header: "expand",
-   		    headerSelected: "collapse"
+   		    headerSelected: "collapse",
+		    fillSpace: true
 		}
 	    }
 	);

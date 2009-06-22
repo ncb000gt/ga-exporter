@@ -9,8 +9,9 @@ label,input{float:left;}
 label{clear:both;width:150px;}
 h1{float:left;}
 .header{overflow:hidden;}
-.nav{float:right;}
-.nav li{list-style:none;display:inline;}
+.nav{float:right;overflow:hidden;}
+.nav li{list-style:none;display:inline;border-right:1px solid #fff;padding:0 10px 0 5px;}
+.nav li.last{border:none;}
 .content{overfloat:hidden;}
 .header{background:#555;margin-bottom:.7em;padding:.7em;margin-top:0;}
 .options{float:left;background:#555;margin-right:10px;width:25%;padding:5px;}
